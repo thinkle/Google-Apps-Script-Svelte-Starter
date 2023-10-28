@@ -26,5 +26,7 @@ app: The Google Workspace app to show the dialog in (DocumentApp, SpreadsheetApp
 
 - Proof of concept: build svelte interface served with GAS!
 - Next up
+  - Pull in material icons and some google/material CSS for convenience
+  - Consider base components for sidebar/dialog components in appsscript + buttons/etc.
   - Get improved support for working with google.script.run in the editor on the svelte side
   - Get improved support for mocking Google Apps Script for local testing.
