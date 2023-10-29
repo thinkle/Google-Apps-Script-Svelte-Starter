@@ -3,6 +3,7 @@
 I love Google Apps Script for whipping together projects for our Google Apps School, and I love svelte development in Visual Studio, but before now, I haven't been able to  bring them together. This repo will give me a recipe for fixing that!
 
 ## Quick Start
+
 1. Clone this repository.
 1. Install the dependencies: npm install
 1. Run development server for Svelte: npm run dev
@@ -51,8 +52,5 @@ local testing.
 
 ## Roadmap
 
-- Proof of concept: build svelte interface served with GAS!
-- Improved type handling and testing framework.
-- Next up
-  - Pull in material icons and some google/material CSS for convenience
-  
+- Proof of concept: build svelte interface served with GAS! (x)
+- Improved type handling and testing framework. (x)
