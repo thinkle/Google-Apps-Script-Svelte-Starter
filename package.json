@@ -4,18 +4,21 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "concurrently  \"npm run watch:types\" \"vite\"",
-    "pre-build": "cp ./dist/appsscript.json ./appsscript.json.bak && node add-google-run-types.js",
+    "dev": "concurrently \"npm run watch:all\" \"vite\"",
+    "pre-build": "cp ./dist/appsscript.json ./appsscript.json.bak && npm run build:all",
     "post-build": "cp ./appsscript.json.bak ./dist/appsscript.json && rm ./appsscript.json.bak",
     "build-svelte": "vite build",
     "build-gas": "vite build --config vite.config.gas.ts",
-    "build": "npm run pre-build && npm-run-all build-svelte build-gas && npm run post-build",
+    "build": "npm-run-all pre-build build-svelte build-gas post-build",
     "upload": "cd dist && npx clasp push --rootDir ./",
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "create-clasp-project": "node createClaspProject.js",
     "push-to-clasp": "npm run build && clasp push",
-    "watch:types": "chokidar 'src/gas/api.ts' -c 'node add-google-run-types.js && node add-google-run-mocks.js'"
+    "watch:all": "chokidar 'src/gas/api.ts' -c 'npm run build:all'",
+    "build:all": "npm-run-all build-types build-mocks",
+    "build-types": "add-google-run-types src/gas/api.ts src/svelte/types/google.script.run.d.ts",
+    "build-mocks": "add-google-run-mocks src/gas/api.ts src/svelte/mock/mockApi.ts"
   },
   "devDependencies": {
     "@google/clasp": "^2.4.2",
@@ -36,6 +39,7 @@
   "dependencies": {
     "@types/google-apps-script": "^1.0.76",
     "@types/google-apps-script-oauth2": "^38.0.2",
-    "@types/google.picker": "^0.0.41"
+    "@types/google.picker": "^0.0.41",
+    "google-apps-script-run-ts-mocks": "^0.0.2"
   }
 }
