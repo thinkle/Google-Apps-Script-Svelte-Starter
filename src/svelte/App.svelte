@@ -3,6 +3,7 @@
   import Block from "./lib/Block.svelte";
   import Sidebar from "./lib/Sidebar.svelte";
   let email;
+  google.script.run.withSuccessHandler((v) => (email = v)).getActiveUserEmail();
 </script>
 
 <Sidebar>

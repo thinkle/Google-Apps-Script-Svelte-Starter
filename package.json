@@ -15,7 +15,7 @@
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "create-clasp-project": "node createClaspProject.js",
     "push-to-clasp": "npm run build && clasp push",
-    "watch:types": "chokidar 'src/gas/api.ts' -c 'node add-google-run-types.js'"
+    "watch:types": "chokidar 'src/gas/api.ts' -c 'node add-google-run-types.js && node add-google-run-mocks.js'"
   },
   "devDependencies": {
     "@google/clasp": "^2.4.2",
