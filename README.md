@@ -22,11 +22,37 @@ title: Title of the dialog.
 modal: Whether the dialog should be modal.
 app: The Google Workspace app to show the dialog in (DocumentApp, SpreadsheetApp, SlidesApp)
 
+### Using google.script.run
+
+To simplify things, we define a file `api.ts` in our src/gas/ directory which should contain all
+functions that we will need in client side svelte code.
+
+Functions from api.ts can then automatically be read so we can generate appropriate typescript
+definition files and mock functions in src/svelte/mock/mockApi.ts
+
+This magic happens automatically with `npm run dev`
+
+So, for example, if you go into api.ts and you add a new function call:
+
+```ts
+
+function getNumberOfRowsInSheet (sheetname : string) : number {
+  // ... add logic here...
+}
+```
+
+The moment you save the file, a type definition file will be added to
+`src/svelte/types` so that typing `google.script.run` will then autocomplete 
+`getNumberOfRowsInSheet` and in addition a mock function will be defined in
+`src/svelte/mock/mockApi` that returns a dummy value you can use for testing.
+
+You should then update your mock files as needed accordingly to help with
+local testing.
+
 ## Roadmap
 
 - Proof of concept: build svelte interface served with GAS!
+- Improved type handling and testing framework.
 - Next up
   - Pull in material icons and some google/material CSS for convenience
-  - Consider base components for sidebar/dialog components in appsscript + buttons/etc.
-  - Get improved support for working with google.script.run in the editor on the svelte side
-  - Get improved support for mocking Google Apps Script for local testing.
+  
