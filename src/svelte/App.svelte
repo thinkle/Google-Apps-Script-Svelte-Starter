@@ -2,8 +2,10 @@
   import Counter from "./lib/Counter.svelte";
   import Block from "./lib/Block.svelte";
   import Sidebar from "./lib/Sidebar.svelte";
+
   let email;
   google.script.run.withSuccessHandler((v) => (email = v)).getActiveUserEmail();
+  google.script.host.setWidth(200);
 </script>
 
 <Sidebar>

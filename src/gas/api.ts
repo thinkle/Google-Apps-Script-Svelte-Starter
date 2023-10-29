@@ -7,3 +7,10 @@ export function getActiveUserEmail() {
   const user = Session.getActiveUser();
   return user.getEmail();
 }
+export function testMe(number: number) {
+  return 113 * number;
+}
+
+export function foo(s: string) {
+  return 7;
+}
