@@ -16,7 +16,8 @@
     "create-clasp-project": "node createClaspProject.js",
     "push-to-clasp": "npm run build && clasp push",
     "watch:all": "chokidar 'src/gas/api.ts' -c 'npm run build:all'",
-    "build:all": "npm-run-all build-types build-mocks",
+    "build:all": "npm-run-all build-types build-mocks build-gas-api",
+    "build-gas-api":"create-client-api src/gas/api.ts src/svelte/gasApi.ts",
     "build-types": "add-google-run-types src/gas/api.ts src/svelte/types/google.script.run.d.ts",
     "build-mocks": "add-google-run-mocks src/gas/api.ts src/svelte/mock/mockApi.ts"
   },
@@ -40,6 +41,8 @@
     "@types/google-apps-script": "^1.0.76",
     "@types/google-apps-script-oauth2": "^38.0.2",
     "@types/google.picker": "^0.0.41",
-    "google-apps-script-run-ts-mocks": "^0.0.2"
+    "google-apps-script-run-ts-mocks": "^0.0.3",
+    "google-apps-script-svelte-components": "file:../google-apps-script-svelte-components",
+    "svelte": "4.2.2"
   }
 }

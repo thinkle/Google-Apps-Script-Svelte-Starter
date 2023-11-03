@@ -13,6 +13,6 @@ export default defineConfig({
       treeshake: false,
     },
     minify: false,
-    target: "es6",
+    target: "es2020",
   },
 });
