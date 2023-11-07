@@ -1,11 +1,4 @@
-export {
-  serveSvelte,
-  doGet,
-  showDialog,
-  showDocDialog,
-  showSlidesDialog,
-  showSpreadsheetDialog,
-} from "./serve";
+export { doGet, showDialog, showSidebar } from "./serve";
 
 function hello() {
   console.log("Hello world!");

@@ -1,0 +1,121 @@
+/* Base styles for the iframe to mimic Google Apps Script appearance */
+body {
+  font-family: Roboto,
+    RobotoDraft,
+    Helvetica,
+    Arial,
+    sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+iframe {
+  border: none;
+  margin: 0;
+  padding: 0;    
+}
+main {
+  display: grid;
+  place-content: center;
+  height: 100vh;
+  width: 100%;
+  background-color: #eee;
+  font-family: Arial;
+  font-size: 32px;
+}
+main::after {
+  content : "Google App Would Be Here :-)";
+  background-color: #efefef;
+  color: #222;
+}
+body {
+  display: flex;
+  justify-content: center;
+}
+
+
+/* Styles specific to the sidebar */
+.sidebar {
+  width: 300px;  
+  /* Typical width of a GAS sidebar */
+  height: 100vh;
+  box-sizing: border-box;
+  border-left: 1px solid #e0e0e0;  
+  /* Adjust based on actual GAS styling */
+}
+.sidebar > * {
+  width: 300px;
+}
+.sidebar header {
+  background: #616161;
+  border: 1px solid #616161;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  height: 40px;
+  box-sizing: border-box;
+  padding: 10px 0 10px 12px;
+  position: relative;
+}
+.sidebar iframe {
+  height: calc(100vh - 40px);
+}
+.dialog iframe {
+  width: 100%;
+  height: calc(100% - 24px);
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dialog {
+  position: fixed;
+  left: 50vw;
+  top: 50vh;
+  transform: translate(-50%, -50%);
+  padding: 24px;
+  border-radius: 8px;
+  background-color: white;
+  /* Subtle shadow for modality */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  
+  border: 1px solid #e0e0e0;
+  box-sizing: border-box;
+  width: 500px;
+  height: 400px;
+}
+.dialog header {  
+  max-width: calc(100% - 32px);
+  min-width: 200px;
+  color: #202124;
+  font-family: Google Sans, Roboto, RobotoDraft, Helvetica;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 28px;
+  text-align: center;
+  justify-content: center;
+}
+.dialog header .close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 8px;
+  cursor: pointer;
+}
+.standalone iframe {
+  height: 100vh;
+  width: 100vw;
+  border: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  background-color: white;
+
+}
+

@@ -1,30 +1,42 @@
 <script lang="ts">
   import Counter from "./lib/Counter.svelte";
-  import { Block } from "google-apps-script-svelte-components";
-  import { Sidebar, Icon, work } from "google-apps-script-svelte-components";
-  import { copy_all } from "google-apps-script-svelte-components/dist/lib/icons/copy_all";
+  import { Block, Icon, work } from "google-apps-script-svelte-components";
+  import { parseContext } from "./lib/parseContext";
+  import { GoogleAppsScript } from "./gasApi";
+  import { onMount } from "svelte";
   let email;
-  google.script.run.withSuccessHandler((v) => (email = v)).getActiveUserEmail();
-  google.script.host.setWidth(200);
+  let contextString = `<? context ?>`;
+  let context = parseContext(contextString);
+  onMount(async () => {
+    email = await GoogleAppsScript.getActiveUserEmail();
+  });
 </script>
 
-<Sidebar>
+<main>
   <h1>Vite + Svelte + AppsScript</h1>
-  <Icon fontSize="128px" icon={work.round} />
   <Block>
+    <h2>I am a Svelte Component</h2>
     <Counter />
-  </Block>
-  <Block>
-    {#if email}
-      Why, hello there, {email}
-    {/if}
-  </Block>
-  <Block>
+    <br />
     <a href="https://learn.svelte.dev/tutorial/welcome-to-svelte">
       Learn Svelte
     </a>
   </Block>
-  <div slot="branding">
+  <Block>
+    <h2>I am a Material Icon</h2>
+    <Icon fontSize="32px" icon={work.round} />
+  </Block>
+  <Block>
+    <h2>I am an Apps Script Call</h2>
+    {#if email}
+      Why, hello there, {email}. Look, I made an API call!
+    {/if}
+  </Block>
+  <Block>
+    Wow, we are in a {context.container}
+    being run from {context.addOn}.
+  </Block>
+  <div>
     <span class="gray">
       Created with
       <a
@@ -37,7 +49,7 @@
       <a target="_blank" href="https://www.tomhinkle.net"> Tom Hinkle </a>
     </span>
   </div>
-</Sidebar>
+</main>
 
 <style>
 </style>

@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"npm run watch:all\" \"vite\"",
+    "dev": "concurrently \"npm run watch:all\" \"vite --open mock/mock.html\"",
     "pre-build": "cp ./dist/appsscript.json ./appsscript.json.bak && npm run build:all",
     "post-build": "cp ./appsscript.json.bak ./dist/appsscript.json && rm ./appsscript.json.bak",
     "build-svelte": "vite build",
