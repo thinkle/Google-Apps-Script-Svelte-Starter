@@ -42,7 +42,7 @@
     "@types/google-apps-script-oauth2": "^38.0.2",
     "@types/google.picker": "^0.0.41",
     "google-apps-script-run-ts-mocks": "^0.0.3",
-    "google-apps-script-svelte-components": "file:../google-apps-script-svelte-components",
+    "google-apps-script-svelte-components": "^0.0.3",
     "svelte": "4.2.2"
   }
 }
