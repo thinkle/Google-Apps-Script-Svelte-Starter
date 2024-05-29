@@ -13,7 +13,7 @@ try {
 
   // Run clasp create and capture the script ID
   const output = execSync(
-    `npx clasp create --title "${projectName}" --type standalone --rootDir dist/`,
+    `mkdir dist && npx clasp create --title "${projectName}" --type standalone --rootDir dist/`,
     { encoding: "utf-8" }
   );
 } catch (err) {
